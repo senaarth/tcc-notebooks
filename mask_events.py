@@ -34,7 +34,7 @@ class MixpanelEventsMaskHandler:
 
         print(f"Iniciando leitura dos eventos {self.file_name}. . .")
 
-        with open(f"{self.file_name}_events.private.txt", "r") as f:
+        with open(f"{self.file_name}.private.txt", "r") as f:
             for line in f:
                 try:
                     json_obj = json.loads(line.replace('""', '"').strip())
@@ -56,7 +56,7 @@ class MixpanelEventsMaskHandler:
 
         masked_data = self.mask_data(events, fields_to_mask)
 
-        with open(f"{self.file_name}_events.masked.json", "w") as f:
+        with open(f"{self.file_name}.masked.json", "w") as f:
             json.dump(masked_data, f, indent=4)
 
 
